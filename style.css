@@ -166,33 +166,28 @@ button:active {
   */
 }
 
-#highlights:before {
-  background: url(./assets/wave.svg);
-  content: "";
-  position: absolute;
-  width: 101vw;
-  height: 12vw;
-  /* viewport width(vw) viewport height(vh/not vertical height) 
-    these are height relative to the screen users are using*/
-  top: 1px;
-  left: 0;
-  z-index: 1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transform: translateY(-100%);
-}
-
-#highlights:after {
+#highlights:before,
+#highlights:after{
     background: url(./assets/wave.svg);
     content: "";
     position: absolute;
     width: 101vw;
     height: 12vw;
-    bottom: 1px;
+    /* viewport width(vw) viewport height(vh/not vertical height) 
+      these are height relative to the screen users are using*/
     left: 0;
     z-index: 1;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#highlights:before {
+  top: 1px;
+  transform: translateY(-100%);
+}
+
+#highlights:after {
+    bottom: 1px;
     transform: translateY(100%) rotate(180deg); 
     /*now instead of pushing it up, we pushing it down 
       so use positive 100%
@@ -239,5 +234,57 @@ button:active {
 /* Features */
 
 #features{
+    /* since wave height is based on vw, padding here needs to be done in vw too to look best
+    */
+    padding-top: 8vw;
     background-color: rgba(115, 66, 214, 0.1);
+}
+
+.books{
+    display: flex;
+}
+
+.book{
+    width: 25%;
+    padding: 24px;
+}
+
+.book__img{
+    max-height: 380px;
+    transition: all 300ms ease;
+    cursor: not-allowed;
+}
+
+.book__img--wrapper{
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    /* df-ing cause if i dont flex, then the img comes out of the figure rlly slightly
+    */
+}
+
+.book:hover .book__img{
+    transform: scale(1.03);
+}
+
+.book__title{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.book__title:hover{
+    text-decoration: underline;
+    cursor: not-allowed;
+}
+
+.book__ratings{
+    margin-bottom: 8px;
+    color: #fabf2a;
+}
+
+.book__price--normal{
+    text-decoration: line-through;
+    padding-right: 6px;
+    color: #bfbfbf;
 }
