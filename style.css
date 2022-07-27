@@ -1,130 +1,243 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-img{
-    width: 100%;
-    height: 50vh;
-    /*50% of your page */
+body{
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
-nav{
-    height: 80px;
-    display: flex;
+img {
+  width: 100%;
+  height: 50vh;
+  /*50% of your page */
 }
 
-.nav__container{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+nav {
+  height: 80px;
+  display: flex;
 }
 
-.logo{
-    width: 160px;
+.nav__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.purple{
-    color: #7342d6;
+p {
+  line-height: 1.5;
 }
 
-ul{
-    display: flex;
-
+.logo {
+  width: 160px;
 }
 
-li{
-    list-style: none;
+.purple {
+  color: #7342d6;
 }
 
-.nav__link{
-    margin-left: 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #7342d6;
-    font-weight: bold;
-    padding: 8px;
+ul {
+  display: flex;
 }
 
-.nav__link:hover{
-    text-decoration: underline;
+li {
+  list-style: none;
 }
 
-.nav__link--primary{
-    border: 2px solid #7342d6;
-    border-radius: 4px;
+.nav__link {
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #7342d6;
+  font-weight: bold;
+  padding: 8px;
 }
 
-.nav__link--primary:hover{
-    /* if you wanted to put this line before nav__link:hover, the you would have to use 
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+.nav__link--primary {
+  border: 2px solid #7342d6;
+  border-radius: 4px;
+}
+
+.nav__link--primary:hover {
+  /* if you wanted to put this line before nav__link:hover, the you would have to use 
        text-decoration: none !important; so that it would get priority but !important
        not good to use unless you absolutely need to use it
     */
-    text-decoration: none; 
+  text-decoration: none;
 }
 
-#landing{
+#landing {
+  background-color: rgba(115, 66, 214, 0.1);
+}
+
+header {
+  /* the entire vertical height - nav height(80px)/ fills up the background color */
+  height: calc(100vh - 80px);
+}
+
+.header__container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 56px;
+  color: #7342d6;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn {
+  background-color: #7342d6;
+  color: white;
+  padding: 12px 24px;
+  font-size: 20px;
+  border-radius: 4px;
+  border: none;
+}
+
+.header__img--wrapper {
+  padding: 20px;
+  z-index: 50;
+  /* as long as the z-index is above the z-index of the wave, 
+    it should show up above. So as long as it is z-index: 2 or more. The necessity of this depends on the screen size.
+    if the screen is big enough(monitor) then the two img wouldnt overlap but im using a laptop so it does. Also you 
+    dont know what screen the other users will be using so good practice?
+    */
+}
+
+.container {
+  padding: 56px 0;
+}
+
+.row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Highlights */
+
+#highlights {
+  position: relative;
+  max-width: 100vw;
+  
+  /*
+    overflow-x: clip;
+     Because the wave's width was 101vw, you can see whitespace outside the page
+     so you have to contain it by setting max width and overflow-x:hidden on the BODY TAG
+  */
+}
+
+#highlights:before {
+  background: url(./assets/wave.svg);
+  content: "";
+  position: absolute;
+  width: 101vw;
+  height: 12vw;
+  /* viewport width(vw) viewport height(vh/not vertical height) 
+    these are height relative to the screen users are using*/
+  top: 1px;
+  left: 0;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateY(-100%);
+}
+
+#highlights:after {
+    background: url(./assets/wave.svg);
+    content: "";
+    position: absolute;
+    width: 101vw;
+    height: 12vw;
+    bottom: 1px;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translateY(100%) rotate(180deg); 
+    /*now instead of pushing it up, we pushing it down 
+      so use positive 100%
+    */
+  }
+  
+
+.highlight__wrapper {
+  display: flex;
+}
+
+.highlight {
+  padding: 0 24px;
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.highlight__para {
+  text-align: center;
+  max-width: 280px;
+}
+
+.highlight__img {
+  color: #7342d6;
+  font-size: 32px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(115, 66, 214, 0.2);
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.highlight__subtitle {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* Features */
+
+#features{
     background-color: rgba(115, 66, 214, 0.1);
-}
-
-header{
-    /* the entire vertical height - nav height(80px)/ fills up the background color */
-    height: calc(100vh - 80px); 
-}
-
-.header__container{
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.header__description{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h1{
-    font-size: 56px;
-    color: #7342d6;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-h2{
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 32px;
-}
-
-button{
-    cursor: pointer;
-}
-
-button:active{
-    transform: translateY(1px);
-}
-
-.btn{
-    background-color: #7342d6;
-    color: white;
-    padding: 12px 24px;
-    font-size: 20px;
-    border-radius: 4px;
-    border: none;
-}
-
-.header__img--wrapper{
-    padding: 20px;
 }
