@@ -18,8 +18,12 @@ body{
 
 img {
   width: 100%;
-  height: 50vh;
-  /*50% of your page */
+  height: auto;
+  /*50% of your page
+    but this hard codes it so it doesnt look good in very small screens
+    like 450px. so either override it using media or create another
+    class for the img
+  */
 }
 
 nav {
@@ -91,6 +95,74 @@ li {
   text-decoration: none;
 }
 
+.btn__menu{
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  border: none;
+  color: #7342d6;
+  display: none;
+}
+
+.menu__backdrop{
+  position: absolute;
+  /* aboslute since we want this in it's own world */
+  background-color: #242424;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*width: 100vw;
+    height: 100vh; 
+    doing top, right ,bot, left 0 and 
+    setting width and height like that
+    does the same thing
+  */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+  /* can't animate from display none to display flex bc element literally goes away so you need to use visibility and opacity */
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu--open .menu__backdrop{
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu--open{
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.menu__links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__link{
+  color: white;
+  font-size: 40px;
+}
+
+.menu__list{
+  padding: 32px 0;
+}
+
+.btn__menu--close{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 8px;
+  color: white;
+}
+
+/* Landing */
+
 #landing {
   background-color: rgba(115, 66, 214, 0.1);
 }
@@ -108,6 +180,7 @@ header {
   flex-direction: column;
   justify-content: space-around;
 }
+
 
 .header__description {
   display: flex;
@@ -153,6 +226,10 @@ button:active {
     if the screen is big enough(monitor) then the two img wouldnt overlap but im using a laptop so it does. Also you 
     dont know what screen the other users will be using so good practice?
     */
+}
+
+.header__img--resize{
+  height: 50vh;
 }
 
 .container {
@@ -220,13 +297,13 @@ button:active {
 
 .highlight__wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .highlight {
   padding: 0 24px;
   width: calc(100% / 3);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -252,6 +329,7 @@ button:active {
 .highlight__subtitle {
   font-size: 20px;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 /* Features */
@@ -322,12 +400,6 @@ button:active {
   background-color: rgba(115, 66, 214, 0.1);
 }
 
-.button__container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Footer */
 
 footer{
@@ -362,4 +434,48 @@ footer{
 
 .footer__link{
   padding: 0 8px;
+}
+
+
+
+@media (max-width: 768px) {
+  .header__description{
+    padding: 0 24px;
+  }
+
+  h1{
+    font-size: 40px;
+  }
+
+  h2{
+    font-size: 24px;
+  }
+
+  button{
+    font-size: 16px;
+  }
+
+  .book{
+    width: 50%;
+  }
+
+
+}
+
+@media (max-width: 550px) {
+  .nav__links{
+    display: none;
+  }
+
+  .btn__menu{
+    display: block;
+  }
+
+  .highlight{ 
+    width: 100%;
+  }
+
+  .highlight:not(:last-child){
+    margin-bottom: 24px;
+  }
 }
