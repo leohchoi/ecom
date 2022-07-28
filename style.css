@@ -7,6 +7,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
     max-width: 100vw;
     overflow-x: hidden;
@@ -35,6 +39,14 @@ nav {
 
 p {
   line-height: 1.5;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
 }
 
 .logo {
@@ -151,6 +163,17 @@ button:active {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.row__column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-cursor{
+  cursor: not-allowed;
 }
 
 /* Highlights */
@@ -305,8 +328,38 @@ button:active {
   justify-content: center;
 }
 
+/* Footer */
 
 footer{
-  background-color: darkgray;
+  background-color: #242424;
 }
 
+.footer__logo{
+  display: flex;
+  /* for some reason, figure has a bigger height than the img itself
+     and if you display flex it, it gets fixed. david don't know why either
+  */
+}
+
+.footer__logo--img{
+  width: 160px;
+  height: auto;
+  /* had to use auto bc it was inheriting the 50vh 
+     that was used in the header img 
+  */
+  filter: grayscale(1) invert(1);
+  /* grayscale 1 turns all elements into dark colors, then you invert it to make it all white */
+}
+
+.footer__link,
+.footer__copyright{
+  color: white;
+}
+
+.footer__list{
+  margin: 20px 0 24px 0;
+}
+
+.footer__link{
+  padding: 0 8px;
+}
