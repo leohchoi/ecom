@@ -242,6 +242,7 @@ button:active {
 
 .books{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .book{
@@ -288,3 +289,24 @@ button:active {
     padding-right: 6px;
     color: #bfbfbf;
 }
+
+/* Recents */
+
+
+/* Explore */
+
+#explore{
+  background-color: rgba(115, 66, 214, 0.1);
+}
+
+.button__container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+footer{
+  background-color: darkgray;
+}
+
