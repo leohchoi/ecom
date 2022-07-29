@@ -441,6 +441,7 @@ footer{
 @media (max-width: 768px) {
   .header__description{
     padding: 0 24px;
+    margin-top: 16px;
   }
 
   h1{
@@ -451,7 +452,7 @@ footer{
     font-size: 24px;
   }
 
-  button{
+  .btn{
     font-size: 16px;
   }
 
@@ -477,5 +478,23 @@ footer{
 
   .highlight:not(:last-child){
     margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 316px) {
+  .header__img--wrapper{
+    padding-top: 0;
+  }
+
+  h1{
+    font-size: 34px;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+  
+  .header__description{
+    padding: 8px 24px;
   }
 }
