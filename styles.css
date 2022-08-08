@@ -455,9 +455,23 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   padding-top: 60px;
   font-size: 60px;
   color: #7342d6;
+}
+
+.books__loading--spinner{
+  font-size: 60px;
+  color: #7342d6;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  display: none;
+}
+
+.books__loading .books__loading--spinner {
+  display: block !important;
 }
 
 .fa-spinner {
